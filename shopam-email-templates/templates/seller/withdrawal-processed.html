@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Withdrawal to Bank - ShopAm</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    "
+  >
+    <table role="presentation" style="width: 100%; border-collapse: collapse">
+      <tr>
+        <td style="padding: 20px 0">
+          <table
+            role="presentation"
+            style="
+              width: 100%;
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #ffffff;
+              border-radius: 12px;
+              overflow: hidden;
+            "
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #167a3c;
+                  padding: 20px 24px;
+                  text-align: left;
+                "
+              >
+                <p
+                  style="
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin: 0;
+                  "
+                >
+                  Your withdrawal to your bank account is on the way
+                </p>
+              </td>
+            </tr>
+
+            <!-- Main Content -->
+            <tr>
+              <td style="padding: 40px 24px">
+                <!-- Logo -->
+                <table
+                  role="presentation"
+                  style="width: 100%; margin-bottom: 40px"
+                >
+                  <tr>
+                    <td style="padding: 30px 24px 20px; text-align: center">
+                      <object
+                        data="../layout/logo.svg"
+                        type="image/svg+xml"
+                        width="153"
+                        height="43"
+                      ></object>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Greeting -->
+                <p
+                  style="
+                    color: #000000;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin: 0 0 20px 0;
+                  "
+                >
+                  Hi (seller),
+                </p>
+
+                <!-- Message -->
+                <p
+                  style="
+                    color: #000000;
+                    font-size: 14px;
+                    line-height: 1.6;
+                    margin: 0 0 30px 0;
+                  "
+                >
+                  Your money is on the way from shopAM wallet to your bank
+                  account.
+                </p>
+
+                <!-- Withdrawal Details Box -->
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 8px;
+                    margin-bottom: 40px;
+                  "
+                >
+                  <tr>
+                    <td style="padding: 20px">
+                      <p
+                        style="
+                          color: #000000;
+                          font-size: 14px;
+                          font-weight: bold;
+                          margin: 0 0 15px 0;
+                        "
+                      >
+                        Withdrawal details
+                      </p>
+
+                      <table role="presentation" style="width: 100%">
+                        <tr>
+                          <td style="padding: 8px 0">
+                            <p
+                              style="color: #666666; font-size: 13px; margin: 0"
+                            >
+                              Account name:
+                            </p>
+                          </td>
+                          <td style="padding: 8px 0; text-align: right">
+                            <p
+                              style="
+                                color: #000000;
+                                font-size: 13px;
+                                margin: 0;
+                                font-weight: 500;
+                              "
+                            >
+                              {{account_name}}
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 8px 0">
+                            <p
+                              style="color: #666666; font-size: 13px; margin: 0"
+                            >
+                              Amount:
+                            </p>
+                          </td>
+                          <td style="padding: 8px 0; text-align: right">
+                            <p
+                              style="
+                                color: #000000;
+                                font-size: 13px;
+                                margin: 0;
+                                font-weight: 500;
+                              "
+                            >
+                              {{amount}}
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 8px 0">
+                            <p
+                              style="color: #666666; font-size: 13px; margin: 0"
+                            >
+                              Bank name:
+                            </p>
+                          </td>
+                          <td style="padding: 8px 0; text-align: right">
+                            <p
+                              style="
+                                color: #000000;
+                                font-size: 13px;
+                                margin: 0;
+                                font-weight: 500;
+                              "
+                            >
+                              {{bank_name}}
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 8px 0">
+                            <p
+                              style="color: #666666; font-size: 13px; margin: 0"
+                            >
+                              Withdraw date:
+                            </p>
+                          </td>
+                          <td style="padding: 8px 0; text-align: right">
+                            <p
+                              style="
+                                color: #000000;
+                                font-size: 13px;
+                                margin: 0;
+                                font-weight: 500;
+                              "
+                            >
+                              {{withdraw_date}}
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 8px 0">
+                            <p
+                              style="color: #666666; font-size: 13px; margin: 0"
+                            >
+                              Due date:
+                            </p>
+                          </td>
+                          <td style="padding: 8px 0; text-align: right">
+                            <p
+                              style="
+                                color: #000000;
+                                font-size: 13px;
+                                margin: 0;
+                                font-weight: 500;
+                              "
+                            >
+                              {{due_date}}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- CTA Button -->
+                <table
+                  role="presentation"
+                  style="width: 100%; margin-bottom: 60px"
+                >
+                  <tr>
+                    <td style="text-align: center">
+                      <a
+                        href="{{view_details_url}}"
+                        style="
+                          display: inline-block;
+                          background-color: #e67e22;
+                          color: #ffffff;
+                          text-decoration: none;
+                          padding: 12px 50px;
+                          border-radius: 8px;
+                          font-size: 16px;
+                          font-weight: 600;
+                        "
+                        >View Details</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+  <!-- Footer -->
+            <tr>
+              <td style="background-color: #eaeaea; padding: 24px">
+                <!-- Follow us text -->
+                <p
+                  style="
+                    margin: 0 0 8px 0;
+                    font-size: 12px;
+                    color: #000000;
+                    font-weight: 500;
+                  "
+                >
+                  Follow us on:
+                </p>
+
+                <!-- Social icons row -->
+                <table
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin-bottom: 8px"
+                >
+                  <tr>
+                    <td style="padding-right: 16px">
+                      <a href="{{twitter_link}}">
+                        <img
+                          src="/shopam-email-templates/templates/layout/twitter.png"
+                          width="17"
+                          height="17"
+                          alt="X"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td style="padding-right: 16px">
+                      <a href="{{facebook_link}}">
+                        <img
+                          src="/shopam-email-templates/templates/layout/facebook.png"
+                          width="17"
+                          height="17"
+                          alt="Facebook"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td style="padding-right: 16px">
+                      <a href="{{instagram_link}}">
+                        <img
+                          src="/shopam-email-templates/templates/layout/instagram.png"
+                          width="17"
+                          height="17"
+                          alt="Instagram"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td style="padding-right: 16px">
+                      <a href="{{linkedin_link}}">
+                        <img
+                          src="/shopam-email-templates/templates/layout/linkedin.png"
+                          width="17"
+                          height="17"
+                          alt="LinkedIn"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{{tiktok_link}}">
+                        <img
+                          src="/shopam-email-templates/templates/layout/tiktok.png"
+                          width="15"
+                          height="17"
+                          alt="TikTok"
+                          style="display: block"
+                        />
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Legal links -->
+                <p style="margin: 0; font-size: 11px; color: #666666">
+                  <a
+                    href="{{privacy_policy_link}}"
+                    style="color: #666666; text-decoration: underline"
+                    >Privacy Policy</a
+                  >
+                  &nbsp;&nbsp;
+                  <a
+                    href="{{terms_link}}"
+                    style="color: #666666; text-decoration: underline"
+                    >Terms of Service</a
+                  >
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

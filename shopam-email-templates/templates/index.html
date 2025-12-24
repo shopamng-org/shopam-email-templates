@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopAm Email Templates Viewer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #167a3c 0%, #0d5028 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .header p {
+        font-size: 16px;
+        opacity: 0.9;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .info-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .template-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .badge.buyer {
+        background: #e8f5e9;
+        color: #167a3c;
+      }
+
+      .badge.seller {
+        background: #fff3e0;
+        color: #e67e22;
+      }
+
+      .badge.shared {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+
+      .counter {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+      }
+
+      .template-name {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .iframe-container {
+        width: 100%;
+        height: 600px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #f5f5f5;
+        margin-bottom: 20px;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .btn-prev {
+        background: #167a3c;
+        color: white;
+      }
+
+      .btn-prev:hover:not(:disabled) {
+        background: #0d5028;
+        transform: translateX(-2px);
+      }
+
+      .btn-next {
+        background: #e67e22;
+        color: white;
+      }
+
+      .btn-next:hover:not(:disabled) {
+        background: #d35400;
+        transform: translateX(2px);
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      select {
+        padding: 12px 40px 12px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        background: white;
+        color: #333;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23333' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+      }
+
+      select:focus {
+        outline: none;
+        border-color: #167a3c;
+      }
+
+      .keyboard-hint {
+        text-align: center;
+        color: #999;
+        font-size: 13px;
+        margin-top: 15px;
+      }
+
+      .keyboard-hint kbd {
+        display: inline-block;
+        padding: 3px 8px;
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 12px;
+        margin: 0 3px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        .header h1 {
+          font-size: 24px;
+        }
+
+        .info-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .controls {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .nav-buttons {
+          width: 100%;
+        }
+
+        .nav-buttons button {
+          flex: 1;
+        }
+
+        select {
+          width: 100%;
+        }
+
+        .iframe-container {
+          height: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>📧 ShopAm Email Templates</h1>
+      <p>Preview all email templates with navigation</p>
+    </div>
+
+    <div class="container">
+      <div class="info-bar">
+        <div class="template-info">
+          <span class="template-name" id="templateName">Loading...</span>
+          <span class="badge" id="categoryBadge">Buyer</span>
+        </div>
+        <span class="counter" id="counter">1 / 21</span>
+      </div>
+
+      <div class="iframe-container">
+        <iframe id="templateFrame" src=""></iframe>
+      </div>
+
+      <div class="controls">
+        <div class="nav-buttons">
+          <button class="btn-prev" id="prevBtn" onclick="previousTemplate()">
+            <span>←</span> Previous
+          </button>
+          <button class="btn-next" id="nextBtn" onclick="nextTemplate()">
+            Next <span>→</span>
+          </button>
+        </div>
+
+        <div class="dropdown">
+          <select id="templateSelect" onchange="jumpToTemplate()">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+        </div>
+      </div>
+
+      <div class="keyboard-hint">
+        💡 Tip: Use <kbd>←</kbd> and <kbd>→</kbd> arrow keys to navigate
+      </div>
+    </div>
+
+    <script>
+      // Define all email templates
+      const templates = [
+        // Buyer Templates
+        {
+          name: "Purchase Successful",
+          path: "buyer/purchase-successful.html",
+          category: "buyer",
+        },
+        {
+          name: "Order Verified (Buyer)",
+          path: "buyer/order-verified.html",
+          category: "buyer",
+        },
+        {
+          name: "Order Delivered",
+          path: "buyer/order-delivered.html",
+          category: "buyer",
+        },
+        {
+          name: "Product Saved",
+          path: "buyer/product-saved.html",
+          category: "buyer",
+        },
+        {
+          name: "Price Reduced",
+          path: "buyer/price-reduced.html",
+          category: "buyer",
+        },
+        {
+          name: "Phone Added (Buyer)",
+          path: "buyer/phone-added.html",
+          category: "buyer",
+        },
+        {
+          name: "OTP Verification (Buyer)",
+          path: "buyer/otp-verification.html",
+          category: "buyer",
+        },
+        {
+          name: "Refund way",
+          path: "buyer/refund-way.html",
+          category: "buyer",
+        },
+          {
+          name: "Return Approved",
+          path: "buyer/return-approved.html",
+          category: "buyer",
+        },
+
+        // Seller Templates
+        {
+          name: "Item Sold",
+          path: "seller/item-sold.html",
+          category: "seller",
+        },
+        {
+          name: "Order Completed",
+          path: "seller/order-completed.html",
+          category: "seller",
+        },
+        {
+          name: "Withdrawal Processed",
+          path: "seller/withdrawal-processed.html",
+          category: "seller",
+        },
+        {
+          name: "Verified Seller",
+          path: "seller/verified-seller.html",
+          category: "seller",
+        },
+        {
+          name: "Order Issues Detected",
+          path: "seller/order-issues.html",
+          category: "seller",
+        },
+        {
+          name: "Refund Approved",
+          path: "seller/refund-approved.html",
+          category: "seller",
+        },
+        {
+          name: "Phone Added (Seller)",
+          path: "seller/phone-added.html",
+          category: "seller",
+        },
+        {
+          name: "OTP Verification (Seller)",
+          path: "seller/otp-verification.html",
+          category: "seller",
+        },
+        {
+          name: "Order Verified (Seller)",
+          path: "seller/order-verified.html",
+          category: "seller",
+        },
+        {
+          name: "Buyer Replacement (Seller)",
+          path: "seller/buyer-replacement.html",
+          category: "seller",
+        },
+        {
+          name: "Payment Wallet (Seller)",
+          path: "seller/payment-wallet.html",
+          category: "seller",
+        },
+
+        // Shared Templates
+        {
+          name: "Order Ready",
+          path: "shared/order-ready.html",
+          category: "shared",
+        },
+        {
+          name: "Password Changed",
+          path: "shared/password-changed.html",
+          category: "shared",
+        },
+        { name: "Welcome", path: "shared/welcome.html", category: "shared" },
+      ];
+
+      let currentIndex = 0;
+
+      // Initialize
+      function init() {
+        populateDropdown();
+        loadTemplate(currentIndex);
+        updateUI();
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") {
+            previousTemplate();
+          } else if (e.key === "ArrowRight") {
+            nextTemplate();
+          }
+        });
+      }
+
+      // Populate dropdown
+      function populateDropdown() {
+        const select = document.getElementById("templateSelect");
+        templates.forEach((template, index) => {
+          const option = document.createElement("option");
+          option.value = index;
+          option.textContent = `${index + 1}. ${template.name} (${
+            template.category
+          })`;
+          select.appendChild(option);
+        });
+      }
+
+      // Load template
+      function loadTemplate(index) {
+        const template = templates[index];
+        const iframe = document.getElementById("templateFrame");
+        iframe.src = template.path;
+      }
+
+      // Update UI
+      function updateUI() {
+        const template = templates[currentIndex];
+
+        // Update template name
+        document.getElementById("templateName").textContent = template.name;
+
+        // Update category badge
+        const badge = document.getElementById("categoryBadge");
+        badge.textContent =
+          template.category.charAt(0).toUpperCase() +
+          template.category.slice(1);
+        badge.className = `badge ${template.category}`;
+
+        // Update counter
+        document.getElementById("counter").textContent = `${
+          currentIndex + 1
+        } / ${templates.length}`;
+
+        // Update dropdown
+        document.getElementById("templateSelect").value = currentIndex;
+
+        // Update buttons
+        document.getElementById("prevBtn").disabled = currentIndex === 0;
+        document.getElementById("nextBtn").disabled =
+          currentIndex === templates.length - 1;
+      }
+
+      // Navigation functions
+      function previousTemplate() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          loadTemplate(currentIndex);
+          updateUI();
+        }
+      }
+
+      function nextTemplate() {
+        if (currentIndex < templates.length - 1) {
+          currentIndex++;
+          loadTemplate(currentIndex);
+          updateUI();
+        }
+      }
+
+      function jumpToTemplate() {
+        currentIndex = parseInt(
+          document.getElementById("templateSelect").value
+        );
+        loadTemplate(currentIndex);
+        updateUI();
+      }
+
+      // Start the app
+      init();
+    </script>
+  </body>
+</html>
