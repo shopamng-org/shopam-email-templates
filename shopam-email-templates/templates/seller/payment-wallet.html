@@ -1,78 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment to Wallet</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
-    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
-        <tr>
-            <td align="center">
-                <!-- Main Container -->
-                <table width="375" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    
-                    <!-- Green Header -->
-                    <tr>
-                        <td style="background-color: #167A3C; padding: 20px 24px; text-align: left;">
-                            <p style="margin: 0; color: #ffffff; font-size: 14px; font-weight: 500;">Payment on the Way</p>
-                        </td>
-                    </tr>
-                    
-                    <!-- Logo -->
-                    <tr>
-                        <td style="padding: 30px 24px 20px; text-align: center;">
-                            <object data="../layout/logo.svg" type="image/svg+xml" width="153" height="43"></object>
-                        </td>
-                    </tr>
-                    
-                    <!-- Content -->
-                    <tr>
-                        <td style="padding: 0 24px 30px;">
-                            <h2 style="margin: 0 0 15px 0; font-size: 16px; font-weight: 600; color: #000000;">Hi {{seller_name}},</h2>
-                            
-                            <p style="margin: 0 0 20px 0; font-size: 14px; color: #333333; line-height: 1.5;">Great news! Your payment for the completed order is now being processed and will be credited to your ShopAm wallet shortly.</p>
-                            
-                            <!-- Payment Details Box -->
-                            <table width="100%" cellpadding="15" cellspacing="0" style="background-color: #f9f9f9; border-radius: 8px; margin-bottom: 20px;">
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="padding-bottom: 10px;">
-                                                    <p style="margin: 0; font-size: 13px; color: #666666;">Amount:</p>
-                                                    <p style="margin: 5px 0 0 0; font-size: 16px; font-weight: 600; color: #167A3C;">₦{{payment_amount}}</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding-bottom: 10px;">
-                                                    <p style="margin: 0; font-size: 13px; color: #666666;">Order ID:</p>
-                                                    <p style="margin: 5px 0 0 0; font-size: 14px; font-weight: 500; color: #333333;">{{order_id}}</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p style="margin: 0; font-size: 13px; color: #666666;">Expected in Wallet:</p>
-                                                    <p style="margin: 5px 0 0 0; font-size: 14px; font-weight: 500; color: #333333;">{{expected_date}}</p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            <!-- Button -->
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td align="center" style="padding-top: 10px;">
-                                        <a href="{{wallet_link}}" style="display: inline-block; background-color: #E67E22; color: #ffffff; text-decoration: none; padding: 12px 40px; border-radius: 12px; font-size: 14px; font-weight: 500;">View Wallet</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    
-           <!-- Footer -->
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif;
+      background-color: #f5f5f5;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #f5f5f5; padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <!-- Main Container -->
+          <table
+            width="375"
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              background-color: #ffffff;
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            "
+          >
+            <!-- Green Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #167a3c;
+                  padding: 20px 24px;
+                  text-align: left;
+                "
+              >
+                <p
+                  style="
+                    margin: 0;
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-weight: 500;
+                  "
+                >
+                  Payment on the Way
+                </p>
+              </td>
+            </tr>
+
+            <!-- Logo -->
+            <tr>
+              <td style="padding: 30px 24px 20px; text-align: center">
+                <object
+                  data="../layout/logo.svg"
+                  type="image/svg+xml"
+                  width="153"
+                  height="43"
+                ></object>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 0 24px 30px">
+                <h2
+                  style="
+                    margin: 0 0 15px 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #000000;
+                  "
+                >
+                  Hi {{seller_name}},
+                </h2>
+
+                <p
+                  style="
+                    margin: 0 0 20px 0;
+                    font-size: 14px;
+                    color: #333333;
+                    line-height: 1.5;
+                  "
+                >
+                  Kingsly has received their order.
+                </p>
+
+             <br>
+             
+                <p
+                  style="
+                    margin: 0 0 20px 0;
+                    font-size: 14px;
+                    color: #333333;
+                    line-height: 1.5;
+                  "
+                >
+Kingsly has received their order.
+
+Your payment will be automatically credited to your wallet without shopAM commission within 10 hours, unless the buyer reports an issue.                </p>
+
+                <!-- Button -->
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" style="padding-top: 10px">
+                      <a
+                        href="{{details_link}}"
+                        style="
+                          display: inline-block;
+                          background-color: #e67e22;
+                          color: #ffffff;
+                          text-decoration: none;
+                          padding: 12px 40px;
+                          border-radius: 12px;
+                          font-size: 14px;
+                          font-weight: 500;
+                        "
+                        >View Details</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
             <tr>
               <td style="background-color: #eaeaea; padding: 24px">
                 <!-- Follow us text -->
@@ -88,7 +147,7 @@
                 </p>
 
                 <!-- Social icons row -->
-               <table
+                <table
                   cellpadding="0"
                   cellspacing="0"
                   style="margin-bottom: 8px"
@@ -168,10 +227,9 @@
                 </p>
               </td>
             </tr>
-                </table>
-            </td>
-        </tr>
+          </table>
+        </td>
+      </tr>
     </table>
-</body>
+  </body>
 </html>
-

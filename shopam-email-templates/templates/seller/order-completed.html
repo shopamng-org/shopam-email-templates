@@ -1,104 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Order is Completed</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
-    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
-        <tr>
-            <td align="center">
-                <!-- Main Container -->
-                <table width="375" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    
-                    <!-- Green Header -->
-                    <tr>
-                        <td style="background-color: #167A3C; padding: 20px 24px; text-align: left;">
-                            <p style="margin: 0; color: #ffffff; font-size: 14px; font-weight: 500;">Your Order is Completed</p>
-                        </td>
-                    </tr>
-                    
-                    <!-- Logo -->
-                    <tr>
-                        <td style="padding: 30px 24px 20px; text-align: center;">
-                            <object data="../layout/logo.svg" type="image/svg+xml" width="153" height="43"></object>
-                        </td>
-                    </tr>
-                    
-                    <!-- Content -->
-                    <tr>
-                        <td style="padding: 0 24px 30px;">
-                            <h2 style="margin: 0 0 15px 0; font-size: 16px; font-weight: 600; color: #000000;">(Seller), your sales order is complete.</h2>
-                            
-                            <p style="margin: 0 0 20px 0; font-size: 14px; color: #333333; line-height: 1.5;">Your sale of {{product_name}} was completed successfully.</p>
-                            
-                            <!-- Transaction Details -->
-                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
-                                <tr>
-                                    <td style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="font-size: 13px; color: #666666;">Transaction id:</td>
-                                                <td align="right" style="font-size: 13px; color: #333333; font-weight: 500;">{{transaction_id}}</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="font-size: 13px; color: #666666;">Item Prices:</td>
-                                                <td align="right" style="font-size: 13px; color: #333333; font-weight: 500;">{{item_price}}</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="font-size: 13px; color: #666666;">ShopAm Commission:</td>
-                                                <td align="right" style="font-size: 13px; color: #333333; font-weight: 500;">{{commission}}</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="font-size: 13px; color: #666666;">Delivery Price:</td>
-                                                <td align="right" style="font-size: 13px; color: #333333; font-weight: 500;">{{delivery_price}}</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 15px 0 0 0;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                                <td style="font-size: 14px; color: #000000; font-weight: 600;">Transferred to your ShopAm wallet:</td>
-                                                <td align="right" style="font-size: 14px; color: #167A3C; font-weight: 600;">{{wallet_amount}}</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-                            <!-- Button -->
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td align="center" style="padding-top: 10px;">
-                                        <a href="{{order_details_link}}" style="display: inline-block; background-color: #E67E22; color: #ffffff; text-decoration: none; padding: 12px 40px; border-radius: 12px; font-size: 14px; font-weight: 500;">View Details</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    
-       <!-- Footer -->
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, sans-serif;
+      background-color: #f5f5f5;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #f5f5f5; padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <!-- Main Container -->
+          <table
+            width="375"
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              background-color: #ffffff;
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            "
+          >
+            <!-- Green Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #167a3c;
+                  padding: 20px 24px;
+                  text-align: left;
+                "
+              >
+                <p
+                  style="
+                    margin: 0;
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-weight: 500;
+                  "
+                >
+                  Your Order is Completed
+                </p>
+              </td>
+            </tr>
+
+            <!-- Logo -->
+            <tr>
+              <td style="padding: 30px 24px 20px; text-align: center">
+                <object
+                  data="../layout/logo.svg"
+                  type="image/svg+xml"
+                  width="153"
+                  height="43"
+                ></object>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 0 24px 30px">
+                <h2
+                  style="
+                    margin: 0 0 15px 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #000000;
+                  "
+                >
+                  (Seller), your sales order is complete.
+                </h2>
+
+                <p
+                  style="
+                    margin: 0 0 20px 0;
+                    font-size: 14px;
+                    color: #333333;
+                    line-height: 1.5;
+                  "
+                >
+                  Your sale of {{product_name}} was completed successfully.
+                </p>
+
+                <!-- Transaction Details -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin-bottom: 20px"
+                >
+                  <tr>
+                    <td
+                      style="padding: 8px 0; border-bottom: 1px solid #e0e0e0"
+                    >
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="font-size: 13px; color: #666666">
+                            Transaction id:
+                          </td>
+                          <td
+                            align="right"
+                            style="
+                              font-size: 13px;
+                              color: #333333;
+                              font-weight: 500;
+                            "
+                          >
+                            {{transaction_id}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding: 8px 0; border-bottom: 1px solid #e0e0e0"
+                    >
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="font-size: 13px; color: #666666">
+                            Item Prices:
+                          </td>
+                          <td
+                            align="right"
+                            style="
+                              font-size: 13px;
+                              color: #333333;
+                              font-weight: 500;
+                            "
+                          >
+                            {{item_price}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding: 8px 0; border-bottom: 1px solid #e0e0e0"
+                    >
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="font-size: 13px; color: #666666">
+                            ShopAm Commission:
+                          </td>
+                          <td
+                            align="right"
+                            style="
+                              font-size: 13px;
+                              color: #333333;
+                              font-weight: 500;
+                            "
+                          >
+                            {{commission}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="padding: 8px 0; border-bottom: 1px solid #e0e0e0"
+                    >
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="font-size: 13px; color: #666666">
+                            V.A.T:
+                          </td>
+                          <td
+                            align="right"
+                            style="
+                              font-size: 13px;
+                              color: #333333;
+                              font-weight: 500;
+                            "
+                          >
+                            {{v.a.t_price}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 15px 0 0 0">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td
+                            style="
+                              font-size: 14px;
+                              color: #000000;
+                              font-weight: 600;
+                            "
+                          >
+                            Transferred to your ShopAm wallet:
+                          </td>
+                          <td
+                            align="right"
+                            style="
+                              font-size: 14px;
+                              color: #167a3c;
+                              font-weight: 600;
+                            "
+                          >
+                            {{wallet_amount}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Button -->
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" style="padding-top: 10px">
+                      <a
+                        href="{{order_details_link}}"
+                        style="
+                          display: inline-block;
+                          background-color: #e67e22;
+                          color: #ffffff;
+                          text-decoration: none;
+                          padding: 12px 40px;
+                          border-radius: 12px;
+                          font-size: 14px;
+                          font-weight: 500;
+                        "
+                        >View Details</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
             <tr>
               <td style="background-color: #eaeaea; padding: 24px">
                 <!-- Follow us text -->
@@ -114,7 +261,7 @@
                 </p>
 
                 <!-- Social icons row -->
-              <table
+                <table
                   cellpadding="0"
                   cellspacing="0"
                   style="margin-bottom: 8px"
@@ -194,10 +341,9 @@
                 </p>
               </td>
             </tr>
-                    
-                </table>
-            </td>
-        </tr>
+          </table>
+        </td>
+      </tr>
     </table>
-</body>
+  </body>
 </html>
